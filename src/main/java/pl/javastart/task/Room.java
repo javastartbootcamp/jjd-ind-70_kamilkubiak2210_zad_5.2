@@ -24,6 +24,12 @@ public class Room {
         if ((airConditioner && (temperature - 1 >= theSmallestTemperature))) {
             temperature--;
             return true;
+        } else if ((airConditioner && (temperature > theSmallestTemperature))) {
+            double temperatureDifference = theSmallestTemperature - temperature;
+            temperature = temperature + temperatureDifference;
+            return true;
+        } else if ((airConditioner && (temperature == theSmallestTemperature))) {
+            return false;
         }
         return false;
     }
